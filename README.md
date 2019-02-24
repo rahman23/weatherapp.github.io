@@ -1,5 +1,5 @@
 
-<a href="https://github.com/rahman23/weather.github.io">WeatherApp</a>
+<a href="https://rahman23.github.io/weatherapp.github.io/">WeatherApp</a>
 <p>Automatically Gets User´s Location</p>
 <p>Autocomplete Textbox for Cities</p>
 <p>3 Different Video Background(Rainy,Cloudy,Snowy)
