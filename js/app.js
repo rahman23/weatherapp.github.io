@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     console.log('Couldnt located');
     const ui = new UI();
-    ui.addCity('Frankfurt');
+    ui.getCoordinates(Frankfurt,DE);
   }
 
 });
