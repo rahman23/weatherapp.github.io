@@ -67,7 +67,12 @@ class UI {
           let table = '';
           data.forEach(function (loc) {
             if (loc.name.toLowerCase().includes(input)) {
-              table += `<tr style="border:0px; font-size:1.2rem"><td><a href="#" class="city-name">${loc.name}</a> <span style="color:#38a9e3">, ${loc.country}</span> </td>`;
+              table += `
+              <tr style="border:0px; font-size:1.2rem">
+              <td><a href="#" class="city-name">${loc.name}</a></td> 
+              <td><span style="color:#38a9e3">,</span></td>
+              <td><span style="color:#38a9e3">${loc.country}</span></td>
+              </tr> `;
             }
           })
           tbody.innerHTML = table;
@@ -84,23 +89,25 @@ class UI {
 
   addCity(target) {
     if (target.className === 'city-name') {
-      document.getElementById('autocomplete-input').value = target.innerHTML;
+      const city = target.parentElement.parentElement.children[0].children[0].innerHTML;
+      const land = target.parentElement.parentElement.children[2].children[0].innerHTML;
+      document.getElementById('autocomplete-input').value = city;
       document.getElementById('search-table').style.display = 'none';
-      document.getElementById('location').textContent = target.innerHTML;
+      document.getElementById('location').textContent = `${city} , ${land}`;
       document.getElementById('location').style.fontSize = '3rem';
-      this.getCoordinates(target.innerHTML);
+      this.getCoordinates(city,land);
     }
   }
 
-  getCoordinates(input) {
+  getCoordinates(city,land) {
     fetch('https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json').then(function (res) {
       return res.json();
     })
       .then(function (data) {
-        data.forEach(function (city) {
-          if (city.name.toLowerCase() === input.toLowerCase()) {
-            const lat = city.lat;
-            const long = city.lng;
+        data.forEach(function (loc) {
+          if (loc.name.toLowerCase() === city.toLowerCase() && loc.country.toLowerCase() === land.toLowerCase()) {
+            const lat = loc.lat;
+            const long = loc.lng;
             const weather = new Weather(lat, long);
             const ui = new UI;
             weather.getWeather()
