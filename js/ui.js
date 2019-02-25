@@ -18,7 +18,7 @@ class UI {
     this.pres.textContent = `Pressure: ${weather.currently.temperature} mb`;
     this.state.textContent = `${weather.daily.summary}`;
  
-    if (weather.currently.icon === 'clearday') {
+    if (weather.currently.icon === 'clear-day') {
       this.icon.src = "./img/sunny.png";
       this.vid.src = "./vid/cloudy.mp4";
 

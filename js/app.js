@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
       weather.getWeather()
         .then(results => {
           ui.display(results);
+          console.log(results);
         })
         .catch(err => console.log(err));
 
