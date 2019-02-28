@@ -1,6 +1,6 @@
 class Weather {
   constructor(lat,long) {
-    this.apiKey = '426bb42b1f3ed2c07ccb6ced4de7416b';
+    this.apiKey = '91c2a4b6f6e2349733c1d8ee3f5bd37a';
     this.lat = lat;
     this.long = long;
     
