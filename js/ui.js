@@ -123,6 +123,33 @@ class UI {
         console.log(err);
       });
   }
+
+  showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("User denied the request for Geolocation.");
+        document.getElementById('location').textContent = "Frankfurt, DE";
+      document.getElementById('location').style.fontSize = '3rem';
+        const weather = new Weather(50.110924, 8.682127);
+            const ui = new UI;
+            weather.getWeather()
+              .then(results => {
+                ui.display(results);
+                console.log(results);
+              })
+              .catch(err => console.log(err));
+        break;
+      case error.POSITION_UNAVAILABLE:
+      console.log("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+      console.log("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+      console.log("An unknown error occurred.");
+        break;
+    }
+  }
 }
 
 

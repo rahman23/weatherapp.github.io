@@ -14,5 +14,7 @@ class Weather {
     return responseData;
   }
 
+
+
 }
 
