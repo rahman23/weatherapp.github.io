@@ -52,10 +52,12 @@ class UI {
       this.icon.src = "./img/fog.png";
       this.vid.src = "./vid/cloudy.mp4";
     }
+    if (weather.currently.temperature < 0) {      
+      this.vid.src = "./vid/ice.mp4";
+    }
   }
 
   searchCity(e) {
-
     const input = e.target.value.toLowerCase();
     const tbody = document.querySelector('#search-output');
     if (input.length > 3) {
