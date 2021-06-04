@@ -66,6 +66,7 @@ class UI {
         return res.json();
       })
         .then(function (data) {      
+          let table = '';
           data.every(function(loc, index) {
             if (loc.name.toLowerCase().includes(input)) {
               console.log(index);
