@@ -65,10 +65,10 @@ class UI {
       fetch('https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json').then(function (res) {
         return res.json();
       })
-        .then(function (data) {
-          let table = '';
-          data.forEach(function (loc) {
+        .then(function (data) {      
+          data.every(function(loc, index) {
             if (loc.name.toLowerCase().includes(input)) {
+              console.log(index);
               table += `
               <tr style="border:0px; font-size:1.2rem">
               <td><a href="#" class="city-name">${loc.name}</a></td> 
